@@ -1,0 +1,40 @@
+la r31,32768
+la r30,36864
+la r29,45056
+la r28,4096
+la r27,4096
+la r25,16384
+la r24,48
+la r23,10
+la r22,40960
+la r5,-1
+la r4,-63
+la r3,2
+la r10,1
+la r0,0
+S1: ld r1,r31
+andi r1,1(r1)
+la r21,S1
+addi r21,4096(r21)
+brzr r21,r1
+S2: ld r1,r30
+andi r1,255(r1)
+add r2,r1,r4
+la r21,IS_ALIVE
+addi r21,4096(r21)
+brzr r21,r2
+la r21,S1
+addi r21,4096(r21)
+st r5,r29
+st r10,r22
+br r21
+IS_ALIVE: st r24,r25
+addi r25,4(r25)
+addi r23,-1(r23)
+brnz r21,r23
+la r23,10
+st r10,r29
+st r10,r22
+la r21,S1
+addi r21,4096(r21)
+br r21
